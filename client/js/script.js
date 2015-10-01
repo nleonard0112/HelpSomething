@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
 
 myApp.config(function ($routeProvider){
 	$routeProvider
@@ -10,6 +10,7 @@ myApp.config(function ($routeProvider){
 	.when('/all', {templateUrl: 'partials/all.html'})
 	.when('/urgent', {templateUrl: 'partials/urgent.html'})
 	.when('/edit', {templateUrl: 'partials/edit.html'})
+	.when('/phone_form', {templateUrl: 'partials/phone.html'})
 	.otherwise({redirectTo: '/'});
 });
 
@@ -21,17 +22,22 @@ myApp.factory('DashboardFactory', function($http, $location){
 	var user_email = "";
 	var user_password = "";
 
-	factory.add_org = function(info, callback){
+	factory.get_all = function(callback){
+		$http.get('/get_organizations').success(function(output){
+			callback(output);
+		});
+	};
 
+	factory.add_org = function(info, callback){
 		$http.post('/add_org', info).success(function(output){
 			callback(output);
 			$location.path('all');
 		});
 	};
 
-	factory.get_all = function(callback){
+	factory.get_contacts = function(callback){
 
-		$http.get('/get_organizations').success(function(output){
+		$http.get('/get_contacts').success(function(output){
 			callback(output);
 		});
 	};
@@ -45,9 +51,16 @@ myApp.factory('DashboardFactory', function($http, $location){
 	};
 
 	factory.delete_org = function(info, callback){
-
 		$http.post('/delete_org', info).success(function(output){
 				callback(output);
+		});
+	};
+
+	factory.delete_contact = function(info, callback){
+		console.log("made it to factory");
+		$http.post('/delete_contact', info).success(function(output){
+				callback(output);
+
 		});
 	};
 
@@ -77,24 +90,17 @@ myApp.factory('DashboardFactory', function($http, $location){
 	factory.add_phone = function(info, callback){
 		$http.post('/add_phone', info).success(function(output){
 			callback(output);
-			$location.path('all');
+			$location.path('/');
 		});
 	};
 
-
 	factory.blast_message = function(info, callback){
-
 		$http.post('/blast_message', info).success(function(output){
 			callback(output);
 			$location.path('all');
-		}); 
-		
+		}); 	
 	};
-
-	console.log(user_email);
-	console.log(user_password);
 	return factory;
-
 });
 
 myApp.factory('SelectFactory', function($http, $location){
@@ -121,15 +127,12 @@ myApp.factory('SelectFactory', function($http, $location){
 		callback(info);
 	};
 
-
 	factory.get_alert = function(callback){
 
 		$http.get('/get_alert').success(function(output){
 			callback(output);
 		});
 	};
-
-	
 
 	return factory;
 });
@@ -141,6 +144,10 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 
 	DashboardFactory.get_all(function(data){
 		$scope.organizations = data;
+	});
+
+	DashboardFactory.get_contacts(function(data){
+		$scope.contacts = data;
 	});
 
 	DashboardFactory.get_email(function(data){
@@ -159,37 +166,37 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 		$scope.user_password = data;
 	});
 
+	$scope.removeContact = function(contact){
+		var really = prompt('Are you sure you want to delete? Type DELETE into the box to confirm deletion');
+		if(really === "DELETE"){
+			console.log("made it in the if statement");
+			DashboardFactory.delete_contact(contact, function(data){
+				$scope.contacts = data;	
+			});
+		}
+	};
 
 	$scope.login = function(email, password){
 		$scope.errors = [];
 		console.log(password);
 		if(email !== $scope.validEmail && password !== $scope.validPassword){
 			$location.path('/login');
-
-
 			$scope.errors.push("Invalid Login Credentials");
-
 		}
 
 		else{
-
 			DashboardFactory.store_login(email, password, function(stored_email, stored_password){
 				console.log(stored_email);
 				$scope.user_email = stored_email;
 				$scope.user_password = stored_password;
-
 			});
-			$location.path('/all');
-			
+			$location.path('/all');	
 		}
 	};
 
-	console.log($scope.user_email);
-	console.log($scope.validEmail);
-
-	// if($scope.user_email !== $scope.validEmail && $scope.user_password !== $scope.validPassword){
-	// 		$location.path('/login');
-	// }
+	if($scope.user_email !== $scope.validEmail && $scope.user_password !== $scope.validPassword){
+			$location.path('/login');
+	}
 
 	$scope.addOrg = function(){
 		$scope.errors = [];
@@ -202,8 +209,7 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 			if($scope.new_org.name === $scope.organizations[i].name){
 				$scope.errors.push("NonProfit already exists.");
 
-			}
-				
+			}	
 		}
 
 		if($scope.errors.length < 1){
@@ -217,8 +223,6 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 				click: $scope.new_org.click,
 				created_at: new Date()
 			};
-
-			console.log("working?");
 
 			DashboardFactory.add_org(org_repack, function(data){
 				$scope.organizations = data;
@@ -281,11 +285,7 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 			DashboardFactory.get_all(function(data){
 				$scope.organizations = data;
 			});
-
-
 		}
-
-		
 	};
 
 	$scope.removeOrg = function(organizations){
@@ -300,55 +300,17 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 		}
 	};
 
-
-	$scope.addNumber = function(){
-		$scope.errors = [];
-		if($scope.new_phone.number === undefined){
-			$scope.errors.push("No fields can be left empty");
-		}
-
-		// for(var i = 0; i < $scope.organizations.length; i++){
-
-		// 	if($scope.new_org.name === $scope.organizations[i].name){
-		// 		$scope.errors.push("NonProfit already exists.");
-
-		// 	}
-				
-		// }
-		console.log($scope.new_phone.number);
-		if($scope.errors.length < 1){
-
-			phone_repack = {
-				phone_number: $scope.new_phone.number,
-				created_at: new Date()
-			};
-
-			DashboardFactory.add_phone(phone_repack, function(data){
-				$scope.phone_numbers = data;
-			});
-
-		}
-	};
-
-
 	$scope.blastMessage = function(){
-
 		alert_repack = {
-
 			name: $scope.message.name,
 			url: $scope.message.url,
 			about: $scope.message.about
-
-
 		};
+
 		DashboardFactory.blast_message(alert_repack, function(data){
 			$scope.blast_message = data;
 		});
-
 	};
-
-
-
 });
 
 myApp.controller('SelectCauseController', function($scope, DashboardFactory, SelectFactory, $location){
@@ -357,6 +319,9 @@ myApp.controller('SelectCauseController', function($scope, DashboardFactory, Sel
 		$scope.organizations = data;
 	});
 
+	DashboardFactory.get_contacts(function(data){
+		$scope.contacts = data;
+	});
 
 	SelectFactory.get_alert(function(data){
 		$scope.alerts = data;
@@ -403,6 +368,35 @@ myApp.controller('SelectCauseController', function($scope, DashboardFactory, Sel
 		$location.path('/country');
 	};
 
+	$scope.addNumber = function(){
+		$scope.errors = [];
+		if($scope.new_phone.number === undefined){
+			$scope.errors.push("No fields can be left empty");
+		}
+
+		for(var i = 0; i < $scope.contacts.length; i++){
+
+			if($scope.new_phone.number === $scope.contacts[i].phone_number){
+				$scope.errors.push("NonProfit already exists.");
+
+			}
+				
+		}
+		console.log($scope.new_phone.number);
+		if($scope.errors.length < 1){
+
+			phone_repack = {
+				phone_number: $scope.new_phone.number,
+				created_at: new Date()
+			};
+
+			DashboardFactory.add_phone(phone_repack, function(data){
+				$scope.phone_numbers = data;
+			});
+
+		}
+	};
+
 	$scope.pickCountry = function(info){
 
 		$scope.pick_country = info;
@@ -447,6 +441,12 @@ myApp.controller('SelectCauseController', function($scope, DashboardFactory, Sel
 
 myApp.controller('ResultsController', function($scope, DashboardFactory, SelectFactory, $location){
 	$scope.organizations = {};
+
+	SelectFactory.get_alert(function(data){
+		$scope.alerts = data;
+		console.log($scope.alerts);
+	});
+
 
 	SelectFactory.get_cause(function(data){
 		$scope.cause = data;	

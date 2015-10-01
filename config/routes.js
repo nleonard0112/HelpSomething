@@ -21,6 +21,11 @@ module.exports = function(app){
 		nonProfits.remove(req, res);
 	});
 
+	app.post('/delete_contact', function(req, res){
+		console.log("made it to routes");
+		contacts.remove(req, res);
+	});
+
 	app.post('/add_phone', function(req, res){
 		contacts.add(req, res);
 	});
@@ -31,6 +36,10 @@ module.exports = function(app){
 
 	app.get('/get_alert', function(req, res){
 		alerts.show(req, res);
+	});
+
+	app.get('/get_contacts', function(req, res){
+		contacts.show_contacts(req, res);
 	});
 
 

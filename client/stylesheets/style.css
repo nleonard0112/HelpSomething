@@ -76,6 +76,7 @@ option {
 	margin: 0 auto;
 	max-width: 1000px;
 	padding-top: 4%;	
+	padding-bottom: 50px;
 }
 
 h1 {
@@ -214,7 +215,7 @@ span.country {color: #49B7C6;}
 
 .login_form input {
 	width: 90%;
-	padding: 2% 5%;
+	padding: 3% 5%;
 	font-size: 20px;
 	font-family: 'Futura-pt-book';
 	border: 1px solid #d1d0d2;
@@ -251,14 +252,64 @@ span.country {color: #49B7C6;}
 
 }
 
-/*input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #dd3928;
+
+.phone_form {
+
+	width: 90%;
+	max-width: 800px;
+	background: #fff;
+	margin: 0 auto;
+	padding: 30px;
+	border-radius: 2px;
+}
+
+.phone_form h4 {
+
+	padding-top: 0px;
+	padding-bottom: 20px;
+	color: #414042;
+	font-family: 'Futura-pt-bold';
+}
+
+.phone_form input {
+	width: 90%;
+	padding: 3% 5%;
+	font-size: 20px;
+	font-family: 'Futura-pt-book';
+	border: 1px solid #d1d0d2;
 
 }
 
-  input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
-    color: #fff; 
-}*/
+.phone_form input[type="text"]:first-child {
+	border-bottom: solid 0px #fff;
+
+}
+
+.phone_form input[type="submit"] {
+	border: 0px;
+	display: block;
+	clear:both;
+	margin-top: 30px;
+	background-color: #AD2920;
+	padding: 15px;
+	font-size: 20px;
+	color: #fff;
+	max-width: 200px;
+	text-align: center;
+	border-radius: 2px;
+	font-family: 'Futura-pt-book';
+	cursor: pointer;
+}
+
+.phone_form input[type="submit"]:hover {
+	border: 0px;
+	display: block;
+	clear:both;
+	margin-top: 30px;
+	background-color: #7F1F17;
+
+}
+
 
 .sidebar_nav {
 	width: 20%; 
@@ -331,10 +382,12 @@ ul {
 
 .content_box input {
 	width: 46.55%;
-	padding: 1% 1.4%;
+	padding: 1.4% 1.4%;
 	font-size: 20px;
 	font-family: 'Futura-pt-book';
 	border: 1px solid #d1d0d2;
+	   margin-bottom: 20px;
+    margin-right: 20px;
 
 
 }
@@ -346,6 +399,7 @@ ul {
 	font-size: 20px;
 	font-family: 'Futura-pt-book';
 	border: 1px solid #d1d0d2 !important;
+	width: 100%;
 
 
 }
@@ -434,12 +488,15 @@ strong {font-family: 'Futura-pt-heavy';}
 	width: 45%;
 	vertical-align: top;
 	margin-right: 5%;
+	   margin-top: 14px;
 }
 
 .right {
 	display: inline-block;
-	width: 50%;
+	width: 49%;
 	vertical-align: top;
+	 margin-top: 14px;
+
 }
 
 .title{
@@ -639,3 +696,40 @@ strong {font-family: 'Futura-pt-heavy';}
 	color: #414042;
 
 }
+
+
+.pop-up {
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    background: #8cc63e;
+    z-index: 999999;
+    display: block;
+    top: 0;
+}
+
+.phone_form {
+
+	max-width: 800px !important;
+}
+
+/*.pop-up {
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    background: #8cc63e;
+    z-index: 999999;
+    display: block;
+    top: 0;
+}*/
+
+/*.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+/*	transition: 1s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
+*/

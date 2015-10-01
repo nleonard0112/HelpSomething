@@ -49,20 +49,20 @@ module.exports = (function(){
 		},
 
 
-		// comment: function(req, res){
+		show_contacts: function(req, res){
 
-		// 	console.log(req.body);
-		// 	Contact.update({product_name: req.body.product_name}, {$push: {comment: {comment: req.body.comment, user: req.body.user, posted_at: new Date()}}}, function(err, products){
-		// 		if(err){
-		// 			console.log(err);
-		// 			console.log('Err removing didnt work!');
-		// 		}
+			Contact.find({}, function(err, contacts){
+				if(err){
+					console.log(err);
+					console.log('Err getting product!');
+				}
 
-		// 		else {
-		// 			res.redirect('/get_products');
-		// 		}
-		// 	});
-		// },
+				else {
+					res.json(contacts);
+				}
+			});
+		},
+
 
 		blast: function(req, res){
 			
@@ -102,6 +102,20 @@ module.exports = (function(){
 					        console.log('Oops! There was an error.');
 					    }
 					});
+				}
+			});
+		},
+
+		remove: function(req, res){
+			Contact.remove({_id: req.body._id}, function(err, contacts){
+				if(err){
+					console.log(err);
+					console.log('Err removing didnt work!');
+				}
+
+				else {
+					console.log('Contact Deleted');
+					res.redirect('/get_contacts');
 				}
 			});
 		}

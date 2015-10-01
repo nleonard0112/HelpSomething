@@ -9,9 +9,6 @@
 		<div  class="body-width">
 
 			<h1>What cause do you want to help today?</h1>
-
-			<!-- <h4>Select a cause.</h4>
-	 -->
 			<form id="first_select">
 				
 				<div class="input-field col s12">
@@ -29,12 +26,11 @@
 
 			</form>
 
-		
 		</div>
 
 	</div>
 
-	<div id="footer">
+	<div id="footer" >
 		
 		<div class="content_footer">
 			
@@ -47,13 +43,32 @@
 			</div>
 		</div>
 
-		<div class="signup_footer">
+		<a class="signup_footer"  data-toggle="modal" data-target="#myModal" href="">
 			<img src="../images/phone_urgent.png">
 			<h4>Get Relief Alerts</h4>
+		</a>
+	</div>
+<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<div class="phone_form">
+
+					<h4>Add Phone Number</h4>
+
+					<div id="errors_box" ng-repeat="i in errors">
+						<h4 ng-bind="i" ></h4>
+					</div>
+
+					<input type="text" ng-model="new_phone.number"  placeholder="Phone Number" name="phone">
+					<input type="submit" ng-click="addNumber()" data-dismiss="modal" value="Add Number">
+				</div>
+
+			</div>
 		</div>
-
-
-
 	</div>
 
 </div>
+

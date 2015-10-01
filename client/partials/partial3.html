@@ -23,4 +23,43 @@
 	
 	</div>
 
+	<div id="footer" >
+		
+		<div class="content_footer">
+			
+			<div class="alert_message" >
+
+				<img src="../images/urgent_footer.png" height="50" width="50" >
+				<h2>Urgent Relief Needed</h2>
+
+				<span class="box"><p ng-bind="alerts[0].alert_message">Japan just got hit with a huge Tsunami, leaving 8 million people with out water or electricity. </p> <a target="_blank" ng-href="{{ alerts[0].alert_url }}" >Help out here</a></span>
+			</div>
+		</div>
+
+		<a class="signup_footer"  data-toggle="modal" data-target="#myModal" href="">
+			<img src="../images/phone_urgent.png">
+			<h4>Get Relief Alerts</h4>
+		</a>
+	</div>
+<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="phone_form">
+
+					<h4>Add Phone Number</h4>
+
+					<div id="errors_box" ng-repeat="i in errors">
+						<h4 ng-bind="i" ></h4>
+					</div>
+
+					<input type="text" ng-model="new_phone.number"  placeholder="Phone Number" name="phone">
+					<input type="submit" ng-click="addNumber()" data-dismiss="modal" value="Add Number">
+				</div>
+
+			</div>
+		</div>
+	</div>
+
 </div>

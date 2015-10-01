@@ -35,17 +35,20 @@
 	<div class="dash_background">
 	
 		<div class="content_box">
-			<h4>Add Phone Number</h4>
+			<h4>Manage Phone Numbers</h4>
 
-			<form >
-				<input type="text" ng-model="new_phone.number"  placeholder="Phone Number" name="phone">
-				<input type="submit" ng-click="addNumber()" value="Add Number">
-
-			</form>
+			<div class="one_org" ng-repeat="contact in contacts">
+				<div class="non-profit-content"  style="margin-left: 0px; width: 100%">
+					
+					
+					<div class="title">
+						<h3 ng-bind="contact.phone_number"></h3>
+						<a href="" class="text_button_delete" ng-click="removeContact(contact)" >Delete</a>
+						
+					</div>
+				</div>
+			</div>
 		</div>
-
-		
-
 	</div>
 
 
