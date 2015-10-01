@@ -1,0 +1,641 @@
+
+@font-face {
+	font-family: 'Futura-pt-book';
+	src: url('../fonts/FuturaStd-Book.otf');
+
+}
+
+@font-face {
+	font-family: 'Futura-pt-medium';
+	src: url('../fonts/FuturaStd-Medium.otf');
+}
+
+@font-face {
+	font-family: 'Futura-pt-heavy';
+	src: url('../fonts/FuturaStd-Heavy.otf');
+}
+
+@font-face {
+	font-family: 'Futura-pt-bold';
+	src: url('../fonts/FuturaStd-Bold.otf');
+}
+
+body {
+	background: #d1d0d2;
+	-webkit-font-smoothing: antialiased !important;
+	font-family: 'Futura-pt-book';
+}
+
+.background_red {
+	background: rgba(0, 0, 0, 0.20);
+	width: 100%;
+	display: block;
+	 height: 100%;
+    min-height: 100vh;
+
+}
+
+.background_red_strong {
+	background: rgba(237, 28, 36, 1);
+	width: 100%;
+	display: block;
+	 height: 100%;
+    min-height: 100vh;
+
+}
+
+a {color: #fff;}
+
+a {
+	text-decoration: none;
+}
+
+select{
+	font-family: 'Futura-pt-book';
+	display: block;
+	height: 80px;
+	-webkit-appearance: none;
+	padding-left:20px;
+	font-size: 20px;
+	border-radius: 0;
+	color: #999;
+	background: #fff;
+	width: 100%;
+	background: #fff url(../images/green_arrow.jpg) no-repeat right center;
+	background-position: 100% 48%;
+	cursor: pointer;
+}
+
+
+option {
+		-webkit-appearance: none;
+}
+
+.body-width {
+	width: 80%;
+	margin: 0 auto;
+	max-width: 1000px;
+	padding-top: 4%;	
+}
+
+h1 {
+	color: #fff;
+	font-family: 'Futura-pt-bold';
+	letter-spacing: 0.03em;
+	font-size: 75px;
+}
+
+h1 span{
+	color: #8cc63e;
+
+}
+
+h2 {
+	color: #fff;
+	font-family: 'Futura-pt-bold';
+	padding-bottom: 60px;
+}
+
+
+h3 {
+	color: #7F1F17;
+	font-family: 'Futura-pt-heavy';
+	font-size: 24px;
+}
+
+h4 {
+	padding-top:40px;
+	color: #7F1F17;
+	font-family: 'Futura-pt-book';
+	letter-spacing: 0.03em;
+	font-size: 28px;
+	-webkit-margin-before: 0em;
+}
+
+p {
+	color: #fff;
+}
+
+.button_large {
+	display: block;
+	clear:both;
+	margin-top: 30px;
+	background-color: #7F1F17;
+	padding: 20px;
+	font-size: 25px;
+	color: #fff;
+	max-width: 300px;
+	text-align: center;
+	border-radius: 2px;
+}
+
+.button_large:hover {
+	background-color: #8B2319;
+
+}
+
+
+
+
+
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover; 
+}
+
+.results {
+
+	margin-left: -1.5%
+}
+
+.non-profits {width: 30%; display: inline-block; margin: 1.5%; padding-bottom: 60px;}
+
+.non-profits img {width: 100%;}
+
+.text_button {
+	color: #7F1F17;
+	font-family: 'Futura-pt-bold';
+	font-size: 15px;
+	border-bottom: 2px solid #7F1F17;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	display: inline-block;
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+
+.text_button:hover, .text_button_back:hover {
+	color: #fff;
+
+}
+
+.text_button_back {
+	color: #7F1F17;
+	font-family: 'Futura-pt-heavy';
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	display: inline-block;
+	padding-top: 20px;
+	margin-bottom: 10px;
+	margin-left: 30px;
+}
+
+
+span.cause {color: #8cc63e;}
+span.country {color: #49B7C6;}
+
+.login_form {
+
+	width: 90%;
+	max-width: 400px;
+	background: #fff;
+	margin: 0 auto;
+	padding: 30px;
+	border-radius: 2px;
+}
+
+.login_form h4 {
+
+	padding-top: 0px;
+	padding-bottom: 20px;
+	color: #414042;
+	font-family: 'Futura-pt-bold';
+}
+
+.login_form input {
+	width: 90%;
+	padding: 2% 5%;
+	font-size: 20px;
+	font-family: 'Futura-pt-book';
+	border: 1px solid #d1d0d2;
+
+}
+
+.login_form input[type="text"]:first-child {
+	border-bottom: solid 0px #fff;
+
+}
+
+.login_form input[type="submit"] {
+	border: 0px;
+	display: block;
+	clear:both;
+	margin-top: 30px;
+	background-color: #AD2920;
+	padding: 15px;
+	font-size: 20px;
+	color: #fff;
+	max-width: 200px;
+	text-align: center;
+	border-radius: 2px;
+	font-family: 'Futura-pt-book';
+	cursor: pointer;
+}
+
+.login_form input[type="submit"]:hover {
+	border: 0px;
+	display: block;
+	clear:both;
+	margin-top: 30px;
+	background-color: #7F1F17;
+
+}
+
+/*input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #dd3928;
+
+}
+
+  input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #fff; 
+}*/
+
+.sidebar_nav {
+	width: 20%; 
+	height: 100vh; 
+	display: block; 
+	background: #292D32;
+	position: fixed;
+}
+
+.dash_background {
+	background: #d1d0d2;
+	top: 0;
+	width: 80%;
+	padding-top: 50px;
+	margin-left: 20%;
+
+}
+
+.red_head {
+	background: #dd3928;
+	width: 100%;
+	padding: 10%;
+	color: #fff;
+	font-size: 24px;
+	font-family: 'Futura-pt-bold';
+}
+
+ul {
+	-webkit-margin-before: 0em;
+}
+
+
+.nav_buttons li {
+	background: #42474C;
+	border-bottom: 1px solid #292D32;
+	width: 100%;
+	padding: 10%;
+	color: #fff;
+	font-size: 16px;
+	font-family: 'Futura-pt-book';
+}
+
+.nav_buttons li:hover {
+	background: #303438;
+}
+
+.nav_buttons li img{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right:15px;
+	margin-top: -5px;
+}
+
+.content_box {
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	background: #fff;
+	padding: 30px;
+	margin-bottom: 30px;
+
+}
+
+.content_box h4 {
+	padding-top: 0px;
+	padding-bottom: 20px;
+	color: #414042;
+	font-family: 'Futura-pt-bold';
+}
+
+.content_box input {
+	width: 46.55%;
+	padding: 1% 1.4%;
+	font-size: 20px;
+	font-family: 'Futura-pt-book';
+	border: 1px solid #d1d0d2;
+
+
+}
+
+
+.content_box textarea {
+	padding: 1% 1.4%;
+	min-height: 150px;
+	font-size: 20px;
+	font-family: 'Futura-pt-book';
+	border: 1px solid #d1d0d2 !important;
+
+
+}
+
+#first_select input[type="submit"] {
+	border: 0px;
+	display: block;
+	clear:both;
+	margin-top: 30px;
+	background-color: #AD2920;
+	padding: 15px;
+	font-size: 20px;
+	color: #fff;
+	width: 30%;
+	max-width: 200px;
+	text-align: center;
+	border-radius: 2px;
+	font-family: 'Futura-pt-book';
+	cursor: pointer;
+}
+
+#first_select input[type="submit"]:hover {
+	background-color: #7F1F17;
+
+}
+
+
+.content_box input[type="submit"] {
+	border: 0px;
+	display: block;
+	clear:both;
+	margin-top: 30px;
+	background-color: #AD2920;
+	padding: 15px;
+	font-size: 20px;
+	color: #fff;
+	max-width: 200px;
+	text-align: center;
+	border-radius: 2px;
+	font-family: 'Futura-pt-book';
+	cursor: pointer;
+}
+
+.content_box input[type="submit"]:hover {
+	border: 0px;
+	display: block;
+	clear:both;
+	margin-top: 30px;
+	background-color: #7F1F17;
+
+}
+
+.non-profit-content input {
+
+
+}
+
+.content_box img {
+
+	width: 20%;
+	display: inline-block;
+	vertical-align: top;
+
+}
+
+
+.non-profit-content  {
+	display: inline-block;
+	vertical-align: top;
+	width: 74%;
+	margin-left: 3%;
+	position: relative;
+
+
+}
+
+
+strong {font-family: 'Futura-pt-heavy';}
+
+.non-profit-content p {
+	color: #666;
+}
+
+.left {
+	display: inline-block;
+	width: 45%;
+	vertical-align: top;
+	margin-right: 5%;
+}
+
+.right {
+	display: inline-block;
+	width: 50%;
+	vertical-align: top;
+}
+
+.title{
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: solid 1px #d1d0d2;
+}
+
+.non-profit-content h3 {
+	font-size: 20px;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	color: #414042;
+	
+}
+
+.text_button_edit {
+	position: absolute;
+	color: #dd3928;
+	right: 0px;
+	top: -4px;
+}
+
+.text_button_delete {
+	position: absolute;
+	color: #dd3928;
+	right: 60px;
+	top: -4px;
+}
+
+
+
+.one_org {
+
+	padding-bottom: 60px;
+}
+
+
+#errors_box{
+
+	background: #fff !important;
+}
+
+#errors_box h4{
+
+	font-family: 'Futura-pt-book';
+	font-size: 17px;
+	color: #dd3928;
+
+}
+.edit_form {
+	margin-top: 20px;
+}
+
+.edit_form input, .edit_form textarea{
+	margin-bottom: 10px;
+	height: 30px;
+	font-size: 15px;
+}
+
+.edit_form input[type="submit"]{
+	margin-bottom: 10px;
+	height: 60px;
+	background: #8cc63e
+
+}
+
+
+#footer {
+
+	width: 100%;
+	background-color: #414042;
+	height: 80px;
+	position: fixed;
+	bottom: 0;
+}
+
+.content_footer {
+
+	width: 88.9%;
+	display: inline-block;
+	vertical-align: top;
+	height: 80px;
+}
+
+
+.signup_footer {
+	height: 80px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	max-width: 200px;
+	display: inline-block;
+	vertical-align: top;
+	background: #fff;
+	cursor: pointer;
+}
+
+.signup_footer:hover {
+
+	background: #8cc63e;
+}
+
+
+.alert_message {
+
+	margin: 0 auto;
+	margin-top: 7px;
+	width: 90%;
+}
+
+.signup_footer {
+
+	text-align: center;
+}
+
+.signup_footer img{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 auto;
+	width: 36px;
+	margin-top: -30px;
+	margin-left: 10px;
+
+}
+
+.alert_message img{
+
+	margin-top: 5px;
+	margin-left: 0px;
+
+}
+
+.alert_message h2{
+	display: inline-block;
+	width: 200px;
+	vertical-align: top;
+	margin-top: 8px;
+	margin-left: 20px;
+	padding-top: 0px;
+	font-size: 22px;
+	font-family: 'Futura-pt-bold';
+	color: #fff;
+
+}
+
+.alert_message .box{
+	display: inline-block;
+	width: 600px;
+	vertical-align: top;
+	margin-top: 8px;
+	margin-left: 20px;
+	padding-top: 0px;
+
+
+}
+
+.alert_message .box p{
+	font-size: 17px;
+	font-family: 'Futura-pt-book';
+	color: #fff;
+	vertical-align: top;
+	-webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    display: inline;
+    line-height: 20px;
+
+}
+
+.alert_message a{
+	font-family: 'Futura-pt-bold';
+	color: #fff;
+	border-bottom: 2px solid #fff;
+	padding-bottom: 5px;
+	display: inline;
+	vertical-align: top;
+
+}
+
+.alert_message a:hover{
+	font-family: 'Futura-pt-bold';
+	color: #8cc63e;
+	border-bottom: 2px solid #8cc63e;
+	padding-bottom: 5px;
+
+}
+
+.signup_footer h4{
+	display: inline-block;
+	width: 90%;
+	vertical-align: top;
+	margin-top: 14px;
+	margin-left: 0px;
+	padding-top: 0px;
+	font-size: 17px;
+	font-family: 'Futura-pt-heavy';
+	color: #414042;
+
+}

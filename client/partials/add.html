@@ -1,0 +1,41 @@
+<div ng-controller="AddController" >
+
+	<div class="sidebar_nav">
+		<div class="red_head">
+			Help Someone!
+		</div>
+
+		<ul class="nav_buttons">
+			<a href="#/all"><li><img src="../images/icon_all.png" height="17" width="17">All Non-Profit</li></a>
+			<a href="#/add"><li><img src="../images/icon_plus.png" height="17" width="17">Add Non-Profit</li></a>
+			<a href="#/urgent"><li><img src="../images/icon_urgent.png" height="17" width="17">Urgent Message</li></a>
+			<a href="#/logout"><li><img src="../images/icon_out.png" height="17" width="17">Log Out</li></a>
+		</ul>
+
+	</div>
+
+	<div class="dash_background">
+	
+		<div class="content_box">
+			<h4>Add a New Non-Profit</h4>
+			<div id="errors_box" ng-repeat="i in errors">
+				<h4 ng-bind="i" ></h4>
+			</div>
+			<form >
+				<input type="text" placeholder="NonProfit Name" name="name" ng-model="new_org.name">
+				<input type="text" placeholder="Cause they help" ng-model="new_org.cause">
+				<input type="text" placeholder="Country they help" ng-model="new_org.country">
+				<input type="text" placeholder="Website Url" ng-model="new_org.url">
+				<textarea placeholder="About NonProfit" ng-model="new_org.description"></textarea>
+<!-- 				<input type="file" data-ng-file-select="onFileSelect($files)" accept="image/png, image/jpeg"> -->
+
+				<input type="submit" value="Add" ng-click="addOrg()">
+
+			</form>
+		</div>
+
+
+		
+
+	</div>
+</div>

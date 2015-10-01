@@ -1,0 +1,26 @@
+<div class="background_red_strong"  ng-controller="ResultsController">
+	<a class="text_button_back" href="#/country">&#x2190; Back to Countries</a>
+	<div class="body-width">
+
+		<h2>People doing something about <span class="cause" ng-bind="cause"></span> in <span class="country" ng-bind="country"></span>.</h2>
+
+
+		<div class="results" >
+			
+			<div class="non-profits" ng-repeat="result in results | orderBy: name">
+				<img src="../images/result_1.jpg" >
+
+				<h3 ng-bind="result.name"></h3>
+
+				<p ng-bind="result.description">Our mission is to bring clean and safe drinking water to every person in the world. </p>
+
+				<a class="text_button" target="_blank" ng-href="{{ result.url }}">Go to Site</a>
+			</div>
+
+			
+
+		</div>
+	
+	</div>
+
+</div>

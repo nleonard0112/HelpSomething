@@ -1,0 +1,52 @@
+<div ng-controller="AddController" >
+
+	<div class="sidebar_nav">
+		<div class="red_head">
+			Help Someone!
+		</div>
+
+		<ul class="nav_buttons">
+			<a href="#/all"><li><img src="../images/icon_all.png" height="17" width="17">All Non-Profit</li></a>
+			<a href="#/add"><li><img src="../images/icon_plus.png" height="17" width="17">Add Non-Profit</li></a>
+			<a href="#/urgent"><li><img src="../images/icon_urgent.png" height="17" width="17">Urgent Message</li></a>
+			<a href="#/logout"><li><img src="../images/icon_out.png" height="17" width="17">Log Out</li></a>
+		</ul>
+
+	</div>
+
+	<div class="dash_background">
+	
+		<div class="content_box">
+			<h4>Add Urgent Message</h4>
+
+			<form >
+				<input type="text" ng-model="message.name" placeholder="Alert Name" name="email">
+				<input type="text" ng-model="message.url" placeholder="Website Url" name="url">
+
+				<textarea ng-model="message.about" placeholder="About Alert"></textarea>
+
+				<input type="submit" ng-click="blastMessage()" value="Blast Message">
+
+			</form>
+		</div>
+
+	</div>
+
+	<div class="dash_background">
+	
+		<div class="content_box">
+			<h4>Add Phone Number</h4>
+
+			<form >
+				<input type="text" ng-model="new_phone.number"  placeholder="Phone Number" name="phone">
+				<input type="submit" ng-click="addNumber()" value="Add Number">
+
+			</form>
+		</div>
+
+		
+
+	</div>
+
+
+</div>

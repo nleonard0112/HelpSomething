@@ -1,0 +1,22 @@
+<video autoplay loop poster="../images/vid_bg.jpg" id="bgvid">
+
+    <source src="https://www.charitywater.org/september/15/videos/intro-placeholder.mp4" type="video/mp4">
+</video>
+
+<div class="background_red" ng-controller="AddController" >
+	<a class="text_button_back">&nbsp;</a>
+	<div class="login_form">
+
+		<h4>Log In</h4>
+
+		<div id="errors_box" ng-repeat="i in errors">
+			<h4 ng-bind="i" ></h4>
+		</div>
+
+		<input type="text" ng-model="login_email" placeholder="email" name="email">
+		<input type="password" ng-model="login_password" placeholder="login_password" name="password">
+
+		<input type="submit" ng-click="login(login_email, login_password)" value="Login">
+	</div>
+
+</div>

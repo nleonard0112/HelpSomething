@@ -1,0 +1,60 @@
+<div ng-controller="SelectCauseController">
+	
+
+
+
+<video autoplay loop poster="../images/vid_bg.jpg" id="bgvid">
+
+    <source src="https://www.charitywater.org/september/15/videos/intro-placeholder.mp4" type="video/mp4">
+</video>
+
+	<div class="background_red">
+		<a class="text_button_back" href="#/">&#x2190; Back to Causes</a>
+		<div  class="body-width">
+
+			<h1>Where do you want to help <span ng-bind="cause"></span>?</h1>
+
+	<!-- 		<h4>Choose a country to help</h4> -->
+
+			<form id="first_select">
+				
+				<div class="input-field col s12">
+					<select ng-options="country.country as country.country for country in countryresults" ng-model="pick_country">
+						<option value="" disabled>Pick a Country</option>
+				
+					</select>
+				</div>
+
+				<input type="submit" class="button_large" ng-click="pickCountry(pick_country)" value="Go to Results">
+
+
+			</form>
+
+		
+		</div>
+
+	</div>
+
+	<div id="footer">
+		
+		<div class="content_footer">
+			
+			<div class="alert_message" >
+
+				<img src="../images/urgent_footer.png" height="50" width="50" >
+				<h2>Urgent Relief Needed</h2>
+
+				<span class="box"><p ng-bind="alerts[0].alert_message">Japan just got hit with a huge Tsunami, leaving 8 million people with out water or electricity. </p> <a target="_blank" ng-href="{{ alerts[0].alert_url }}" >Help out here</a></span>
+			</div>
+		</div>
+
+		<div class="signup_footer" href="#/phone">
+			<img src="../images/phone_urgent.png">
+			<h4>Get Relief Alerts</h4>
+		</div>
+
+
+
+	</div>
+
+</div>
