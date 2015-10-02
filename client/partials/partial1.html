@@ -1,14 +1,12 @@
 <div ng-controller="SelectCauseController">
-	<video autoplay loop poster="../images/vid_bg.jpg" id="bgvid">
 
-	    <source src="https://www.charitywater.org/september/15/videos/intro-placeholder.mp4" type="video/mp4">
-	</video>
 
-	<div class="background_red" ng-controller="SelectCauseController" >
+	<div class="background_red">
 		<a class="text_button_back">&nbsp;</a>
 		<div  class="body-width">
 
-			<h1>What cause do you want to help today?</h1>
+			<h1 ng-class="{slide}">What cause do you want to help today?</h1>
+
 			<form id="first_select">
 				
 				<div class="input-field col s12">

@@ -35,6 +35,12 @@ myApp.factory('DashboardFactory', function($http, $location){
 		});
 	};
 
+	factory.upload_image = function(info, callback){
+		$http.post('/api/photo', info).success(function(output){
+			callback(output);
+		});
+	};
+
 	factory.get_contacts = function(callback){
 
 		$http.get('/get_contacts').success(function(output){
@@ -194,9 +200,9 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 		}
 	};
 
-	if($scope.user_email !== $scope.validEmail && $scope.user_password !== $scope.validPassword){
-			$location.path('/login');
-	}
+	// if($scope.user_email !== $scope.validEmail && $scope.user_password !== $scope.validPassword){
+	// 		$location.path('/login');
+	// }
 
 	$scope.addOrg = function(){
 		$scope.errors = [];
@@ -227,6 +233,7 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 			DashboardFactory.add_org(org_repack, function(data){
 				$scope.organizations = data;
 			});
+
 		}
 	};
 
@@ -255,7 +262,7 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 		$scope.editorEnabled = false;
 	};
 
-	$scope.save = function(EditCause, EditCountry, EditDescription, EditUrl, OrgId, $index) {
+	$scope.save = function(EditCause, EditCountry, EditDescription, EditUrl, OrgId, EditImage, $index) {
 
 		if(EditCause === undefined || EditCause === "" || EditCountry === undefined || EditCountry === "" || EditDescription === undefined || EditDescription === "" || EditUrl === undefined || EditUrl === ""){
 			$scope.errors.push("No fields can be left empty");
@@ -268,12 +275,18 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 			$scope.EditDescription = EditDescription;
 			$scope.EditUrl = EditUrl;
 			$scope.EditId = OrgId;
+			$scope.EditImage = EditImage;
 
 			edit_repack = {
 				country: $scope.EditCountry,
 				cause: $scope.EditCause,
 				description: $scope.EditDescription,
 				url: $scope.EditUrl,
+				_id: $scope.EditId
+			};
+
+			image_repack = {
+				image: $scope.EditImage,
 				_id: $scope.EditId
 			};
 		
@@ -284,6 +297,11 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 			
 			DashboardFactory.get_all(function(data){
 				$scope.organizations = data;
+			});
+
+
+			DashboardFactory.upload_image(image_repack, function(data){
+				$scope.images = data;
 			});
 		}
 	};
@@ -311,9 +329,15 @@ myApp.controller('AddController', function($scope, DashboardFactory, $location){
 			$scope.blast_message = data;
 		});
 	};
+
+
+
 });
 
-myApp.controller('SelectCauseController', function($scope, DashboardFactory, SelectFactory, $location){
+myApp.controller('SelectCauseController', function($scope, DashboardFactory, SelectFactory, $location, $window){
+
+
+
 
 	DashboardFactory.get_all(function(data){
 		$scope.organizations = data;
@@ -365,7 +389,12 @@ myApp.controller('SelectCauseController', function($scope, DashboardFactory, Sel
 			$scope.pick_cause = info;
 		});
 
-		$location.path('/country');
+		// $location.path('/country');
+		$location.path('/country' === $location.path() ? '/' : '/country');
+	};
+
+	$scope.switch = function() {
+		
 	};
 
 	$scope.addNumber = function(){

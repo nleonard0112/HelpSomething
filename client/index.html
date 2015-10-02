@@ -9,23 +9,22 @@
 
 	<script type="text/javascript" src="/js/script.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<!-- 	<script type="text/javascript" src="/js/bootstrap.min.js"></script> -->
 
 
-<!-- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-
-<!-- 	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css"> -->
 
 </head>
 <body>
 
 
 <div ng-app="myApp">
+	<video autoplay loop poster="../images/vid_bg.jpg" id="bgvid">
 
+	    <source src="https://www.charitywater.org/september/15/videos/intro-placeholder.mp4" type="video/mp4">
+	</video>
 
-<div ng-view=""></div>
+<div ng-view=""  class="fade"></div>
 
 </div>
 

@@ -32,7 +32,7 @@ module.exports = (function(){
 	
 					res.json(organizations);
 				}
-			});
+			}).sort( { name: 1 });
 		},
 
 		edit: function(req, res){

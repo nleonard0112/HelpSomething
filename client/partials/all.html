@@ -9,7 +9,7 @@
 			<a href="#/all"><li><img src="../images/icon_all.png" height="17" width="17">All Non-Profit</li></a>
 			<a href="#/add"><li><img src="../images/icon_plus.png" height="17" width="17">Add Non-Profit</li></a>
 			<a href="#/urgent"><li><img src="../images/icon_urgent.png" height="17" width="17">Urgent Message</li></a>
-			<a href="#/logout"><li><img src="../images/icon_out.png" height="17" width="17">Log Out</li></a>
+			<a href="#/"><li><img src="../images/icon_out.png" height="17" width="17">Log Out</li></a>
 		</ul>
 
 	</div>
@@ -39,10 +39,10 @@
 	     					<input ng-model="editorCountry" >
 	     					<textarea  ng-model="editorDescription"></textarea>
 	     					<input ng-model="editorUrl">
-	     					<input type="submit" ng-click="save(editorCause, editorCountry, editorDescription, editorUrl, organization._id, $index)" value="Save">
-
-
+	     					<input type="file" ng-model="editorImage" name="userPhoto" />
+	     					<input type="submit"  ng-click="save(editorCause, editorCountry, editorDescription, editorUrl, organization._id, editorImage, $index)" value="Save">
 						</form>
+
      
       					<a href="" ng-click="disableEditor()" style="color: #dd3928">Cancel</a>
 
